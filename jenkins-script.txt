@@ -1,0 +1,16 @@
+pipeline {
+    angnt any {
+        stages {
+            stage("Checkout") {
+                steps {
+                    git 'https://github.com/vamandeshmukh/deloitte-jpa-demo-sep-2024.git'
+                }
+            }
+            stage('Build') {
+                steps {
+                    batch 'mvn clean install'
+                }
+            }
+        }
+    }
+}
