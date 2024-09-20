@@ -20,6 +20,7 @@ public class HibernateDemo {
 
 			session.beginTransaction();
 
+			// HQL - JPQL 
 			List<Employee> employees = session.createQuery("from Employee", Employee.class).getResultList();
 
 			// methods for CRUD operations - 
