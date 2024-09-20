@@ -1,15 +1,17 @@
 pipeline {
     agent any 
-        stages {
-            stage("Checkout") {
-                steps {
-                    git 'https://github.com/vamandeshmukh/deloitte-jpa-demo-sep-2024.git'
-                }
-            }
-            stage('Build') {
-                steps {
-                    bat 'mvn clean install'
+    stages {
+        stage('Checkout') {
+            steps {
+                retry(3) {
+                    git branch: 'main', url: 'https://github.com/vamandeshmukh/deloitte-jpa-demo-sep-2024.git'
                 }
             }
         }
+        stage('Build') {
+            steps {
+                bat 'mvn clean install'
+            }
+        }
     }
+}
