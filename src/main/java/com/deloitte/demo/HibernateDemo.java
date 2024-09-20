@@ -21,7 +21,13 @@ public class HibernateDemo {
 			session.beginTransaction();
 
 			List<Employee> employees = session.createQuery("from Employee").getResultList();
+			
+//			session.find(null, employees);
+//			session.save(employees);
+//			session.update(employees);
+//			session.remove(employees);
 
+			
 			for (Employee emp : employees) {
 				System.out.println(emp);
 			}
